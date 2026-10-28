@@ -79,6 +79,10 @@ depend on.
 
 Wait for a pattern before you abstract it. One case doesn't show which
 pattern is real.
+A thin wrapper around an outside library is different. It gives the
+library your own names and keeps it in one place, so you can write it for
+the first case. For example, a small package with `Ready()` and
+`Stopping()` over a systemd library.
 
 Use a library when more code benefits from it, when the code would be
 complex, or when the domain is easy to get wrong, like time or parsing.
