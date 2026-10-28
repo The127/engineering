@@ -15,7 +15,7 @@ review comment or what I asked for, say so and discuss it. Then get
 evidence: a test, a measurement, a small experiment. The other person may
 be thinking on a different layer, so the discussion matters too.
 
-If you don't know something for sure, say "not right now", or find out.
+If you don't know something for sure, say you don't know yet, or find out.
 Don't pass a guess off as an answer.
 
 ## Talking before you act
@@ -51,18 +51,21 @@ own commit. A related bug is a judgment call. It depends on the size of the
 codebase, how much code is affected and how bad the bug is. Raise the rest
 by saying it, like at a standup.
 
-If you find a design problem, fix it right away, as its own change. A
-database query for each item in a list is one. It usually means the
-interface only offers "get one".
+If you find a design problem, fix it right away, as its own change,
+instead of working around it. Workarounds point to it: when your code has
+to do something clumsy because of the code it uses, the problem is usually
+there. For example, loading items one by one often means the interface has
+no way to load many.
 
 ## Reading code
 
 Don't read a codebase to get oriented. Read the part you hook into. It
 should be easy to find, because the structure is good or the issue names
-it. Assume the rest looks like what you saw. To add a field, read one
-model, not all of the database code. Read more only when you need it: the
-code next to yours, something special like a JSON type, or a test that
-fails for a reason you didn't expect.
+it. Assume the rest looks like what you saw.
+
+Read what your change touches and what it directly depends on. Read more
+when something surprises you or doesn't fit, for example a test that fails
+for a reason you didn't expect.
 
 Code that looks alike isn't always the same thing. Assuming it is helps you
 decide what to read. It's no reason to merge it.
@@ -111,7 +114,7 @@ about how the change could be abused, and have it reviewed for security.
 If you think a review comment is wrong, find evidence, or make a judgment
 call when that's too hard or it's a matter of style. Then either fix it or
 answer it. If an automated reviewer keeps making the same mistake, change
-its settings in the same commit.
+its settings in the commit that answers the review.
 
 ## Reporting back
 
